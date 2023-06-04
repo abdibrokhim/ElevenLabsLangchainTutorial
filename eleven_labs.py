@@ -7,11 +7,13 @@ os.environ['ELEVENLABS_API_KEY'] = ''
 set_api_key(os.environ.get("ELEVENLABS_API_KEY"))
 
 
-def with_custom_voice(name, description, prompt, file_path):
-    audio_path = 'sample.mp3'
+def with_custom_voice(podcaster, guest, description, prompt, file_path):
+    name = f'Podcast between {podcaster} and {guest}'
+    temp = name.replace(' ', '_')
+    audio_path = f'{temp}.mp3'
 
     voice = clone(
-        name=name,
+        name=f'Podcast between {podcaster} and {guest}',
         description=description,
         files=[file_path,],
     )
